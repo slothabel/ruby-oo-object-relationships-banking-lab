@@ -31,14 +31,7 @@ class Transfer
      "Transaction rejected. Please check your account balance."
   end
 
-#=> #<Transfer:0x00007f94d3398428
-# @amount=50,
-# @receiver=#<BankAccount:0x00007f94d3398478 @balance=1050, @name="Avi", @status="open">,
-# @sender=#<BankAccount:0x00007f94d3398518 @balance=950, @name="Amanda", @status="open">,
-# @status="complete">
-
   def reverse_transfer
-  #binding.pry
   if valid? && self.receiver.balance > amount && self.status == "complete"
     self.sender.balance += amount
     self.receiver.balance -= amount
